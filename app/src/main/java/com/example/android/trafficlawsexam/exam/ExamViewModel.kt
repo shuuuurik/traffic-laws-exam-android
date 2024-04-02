@@ -32,7 +32,7 @@ class ExamViewModel(
         get() = _currentQuestion
 
     var questionIndex : MutableLiveData<Int> = MutableLiveData<Int>(0)
-    var numQuestions : MutableLiveData<Int> = MutableLiveData<Int>(5)
+    var numQuestions : MutableLiveData<Int> = MutableLiveData<Int>(20)
     private var correctAnswersNumber = 0
 
     private var _additionalQuestionsCount = 0
@@ -67,7 +67,7 @@ class ExamViewModel(
         // This is the number of milliseconds in a second
         const val ONE_SECOND = 1000L
         // This is the total time of the game
-        const val GAME_TIME = 30 * ONE_SECOND
+        const val GAME_TIME = 1200 * ONE_SECOND
     }
 
     private var timer: CountDownTimer
@@ -124,30 +124,14 @@ class ExamViewModel(
             if (oldQuestion.correctAnswerNumber == checkedNumber)
                 correctAnswersNumber++
 
-            if (questionIndex.value!! + 1 == 5) {
+            if (questionIndex.value!! + 1 == 20) {
                 when (correctAnswersNumber) {
-                    5 -> _navigateToExamPassed.value = true
-                    4 -> {
-                        _additionalQuestionsCount = 2
-                        numQuestions.value = 7
-                        timer.cancel()
-                        timer = object : CountDownTimer((_secondsUntilEnd.value!! + 15) * ONE_SECOND, ONE_SECOND) {
-                            override fun onTick(millisUntilFinished: Long) {
-                                _secondsUntilEnd.value = millisUntilFinished / ONE_SECOND
-                            }
-                            override fun onFinish() {
-                                numQuestions.value = questionIndex.value
-                                _navigateToExamFailed.value = true
-                            }
-                        }
-                        timer.start()
-                        _areQuestionsAdded.value = true
-                    }
-                    3 -> {
+                    20 -> _navigateToExamPassed.value = true
+                    19 -> {
                         _additionalQuestionsCount = 5
-                        numQuestions.value = 10
+                        numQuestions.value = 25
                         timer.cancel()
-                        timer = object : CountDownTimer((_secondsUntilEnd.value!! + 30) * ONE_SECOND, ONE_SECOND) {
+                        timer = object : CountDownTimer((_secondsUntilEnd.value!! + 300) * ONE_SECOND, ONE_SECOND) {
                             override fun onTick(millisUntilFinished: Long) {
                                 _secondsUntilEnd.value = millisUntilFinished / ONE_SECOND
                             }
@@ -159,17 +143,33 @@ class ExamViewModel(
                         timer.start()
                         _areQuestionsAdded.value = true
                     }
-                    in 0..2 -> {_navigateToExamFailed.value = true }
+                    18 -> {
+                        _additionalQuestionsCount = 10
+                        numQuestions.value = 30
+                        timer.cancel()
+                        timer = object : CountDownTimer((_secondsUntilEnd.value!! + 600) * ONE_SECOND, ONE_SECOND) {
+                            override fun onTick(millisUntilFinished: Long) {
+                                _secondsUntilEnd.value = millisUntilFinished / ONE_SECOND
+                            }
+                            override fun onFinish() {
+                                numQuestions.value = questionIndex.value
+                                _navigateToExamFailed.value = true
+                            }
+                        }
+                        timer.start()
+                        _areQuestionsAdded.value = true
+                    }
+                    in 0..17 -> {_navigateToExamFailed.value = true }
                 }
             }
-            else if (questionIndex.value!! + 1 == 7 && numQuestions.value!! == 7)
+            else if (questionIndex.value!! + 1 == 25 && numQuestions.value!! == 25)
                 when (correctAnswersNumber) {
-                    6 -> _navigateToExamPassed.value = true
+                    24 -> _navigateToExamPassed.value = true
                     else -> _navigateToExamFailed.value = true
                 }
-            else if (questionIndex.value!! + 1 == 10 && numQuestions.value!! == 10)
+            else if (questionIndex.value!! + 1 == 30 && numQuestions.value!! == 30)
                 when (correctAnswersNumber) {
-                    8 -> _navigateToExamPassed.value = true
+                    28 -> _navigateToExamPassed.value = true
                     else -> _navigateToExamFailed.value = true
                 }
             Log.i("Test", "Correct answers number: ${correctAnswersNumber}")
