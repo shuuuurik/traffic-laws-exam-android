@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#101eed</color>
+    <color name="colorPrimaryDark">#0711a8</color>
+    <color name="appBackground">#c3d9db</color>
+    <color name="colorAccent">#7e53c5</color>
+    <color name="examPassedBackground">#B7F8C9</color>
+    <color name="examPassedDark">#35A571</color>
+    <color name="examFailedBackground">#f8bbd0</color>
+    <color name="correctAnswer">#1dcf17</color>
+    <color name="wrongAnswer">#fa0e0e</color>
+    <color name="grey_text_color">#99000000</color>
+</resources>

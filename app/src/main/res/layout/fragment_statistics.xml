@@ -1,0 +1,95 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.navigation.TitleFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titleConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/appBackground">
+
+        <TextView
+            android:id="@+id/learned_questions_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:textAlignment="viewEnd"
+            android:text="@string/learned_questions_number"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/all_questions_number_text" />
+
+        <TextView
+            android:id="@+id/learned_questions_number_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/learned_questions_number_text"
+            tools:text="50"/>
+
+        <TextView
+            android:id="@+id/all_questions_number_text"
+            android:layout_width="@+id/learned_questions_number_text"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:textAlignment="viewEnd"
+            android:text="@string/all_questions_number"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/learned_questions_number_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/all_questions_number_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/learned_questions_number_value"
+            app:layout_constraintStart_toEndOf="@+id/all_questions_number_text"
+            tools:text="100"/>
+
+        <TextView
+            android:id="@+id/learning_progress_text"
+            android:layout_width="@+id/learned_questions_number_text"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:textAlignment="viewEnd"
+            android:text="@string/learning_progress"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/all_questions_number_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/learning_progress_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/question_text_size"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/all_questions_number_value"
+            app:layout_constraintStart_toEndOf="@+id/learning_progress_text"
+            tools:text="50%"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

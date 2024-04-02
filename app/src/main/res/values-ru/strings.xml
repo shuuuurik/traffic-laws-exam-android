@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Экзамен ПДД</string>
+    <string name="start_exam">Начать экзамен</string>
+    <string name="all_questions">Все вопросы</string>
+    <string name="statistics">Статистика</string>
+    <string name="submit_button">Ответить</string>
+    <string name="title_exam_question">Вопрос (%1$d/%2$d)</string>
+    <string name="additional_questions_notifying">+%1$d вопросов за ошибки</string>
+    <string name="my_answers_button">Мои ответы</string>
+    <string name="pass_again_button">Пройти заново</string>
+    <string name="congratulations_text">Поздравляем! Экзамен сдан</string>
+    <string name="failed_text">Экзамен провален. Попробуйте снова!</string>
+    <string name="title_results">Результаты</string>
+    <string name="next_answer_button">Следующий</string>
+    <string name="previous_answer_button">Предыдущий</string>
+    <string name="learned_questions_number">Количество изученных вопросов:</string>
+    <string name="all_questions_number">Общее количество вопросов:</string>
+    <string name="learning_progress">Прогресс изучения:</string>
+
+</resources>

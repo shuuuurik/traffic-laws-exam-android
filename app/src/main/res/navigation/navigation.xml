@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.android.trafficlawsexam.title.TitleFragment"
+        android:label="TitleFragment" >
+        <action
+            android:id="@+id/action_titleFragment_to_examFragment"
+            app:destination="@id/examFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_allQuestionsListFragment"
+            app:destination="@id/allQuestionsListFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/examFragment"
+        android:name="com.example.android.trafficlawsexam.exam.ExamFragment"
+        android:label="ExamFragment" >
+        <action
+            android:id="@+id/action_examFragment_to_examPassedFragment"
+            app:destination="@id/examPassedFragment"
+            app:popUpTo="@id/examFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_examFragment_to_examFailedFragment"
+            app:destination="@id/examFailedFragment"
+            app:popUpTo="@id/examFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/examPassedFragment"
+        android:name="com.example.android.trafficlawsexam.exampassed.ExamPassedFragment"
+        android:label="ExamPassedFragment" >
+        <action
+            android:id="@+id/action_examPassedFragment_to_examFragment"
+            app:destination="@id/examFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false" />
+        <argument android:name="listQuestionsId"
+            app:argType="long[]" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_examPassedFragment_to_examCorrectAnswersFragment"
+            app:destination="@id/examCorrectAnswersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/examFailedFragment"
+        android:name="com.example.android.trafficlawsexam.examfailed.ExamFailedFragment"
+        android:label="ExamFailedFragment" >
+        <action
+            android:id="@+id/action_examFailedFragment_to_examFragment"
+            app:destination="@id/examFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_examFailedFragment_to_examCorrectAnswersFragment"
+            app:destination="@id/examCorrectAnswersFragment" />
+        <argument
+            android:name="listQuestionsId"
+            app:argType="long[]" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/examCorrectAnswersFragment"
+        android:name="com.example.android.trafficlawsexam.examcorrectanswers.ExamCorrectAnswersFragment"
+        android:label="ExamCorrectAnswersFragment" >
+        <argument
+            android:name="listQuestionsId"
+            app:argType="long[]" />
+        <argument
+            android:name="numQuestions"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/allQuestionsListFragment"
+        android:name="com.example.android.trafficlawsexam.allquestionslist.AllQuestionsListFragment"
+        android:label="AllQuestionsListFragment" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.android.trafficlawsexam.statistics.StatisticsFragment"
+        android:label="StatisticsFragment" />
+</navigation>
